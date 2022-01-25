@@ -1,0 +1,14 @@
+Question 3:
+Assume that we have Employee(id, name, salary, departmentId) and
+Department(id, name). A company's executives are interested in seeing who earns
+the most money in each of the company's departments. A high earner in a
+department is an employee who has a salary in the top three unique salaries for
+that department.
+Write an SQL query to find the employees who are high earners in each of the
+departments. (20 points)
+
+
+Answer:
+select *,
+       row_number() over (partition by departmentId Order by salary desc) AS highEarner
+from Employee
