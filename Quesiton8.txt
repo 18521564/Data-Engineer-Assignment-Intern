@@ -1,0 +1,20 @@
+Question 8:
+Assume that you are a rector of a university and you want to show to the
+public a statistics report for examinees in your university entrance exam, what is
+the best graph to use. Please justify your decision. (Max 2 points)
+
+Answer:
+
+Với mỗi từng môn học:
+Nếu thang điểm từ một đến mười và cho làm tròn:
+Em sẽ sử dụng biểu đồ hình cột (bar chart) để thể hiện các nhóm điểm từ 0 đến 9.
+Nếu thang điểm là biến rời rạc không cho làm tròn:
+Em sẽ sử dụng KDE plot để thể hiện sự phân bố của các mức điểm số.
+
+Theo từng khối A,A1,B,etc:
+Sử dụng biểu đồ tròn pie chart để thể hiện phần trăm theo khối môn học thi vào trường.
+Sử dụng kde plot cho từng khối để thể hiện mức điểm.
+
+Phân tích kết hợp môn học và khối:
+Với mỗi môn học, vẽ theo từng khối sử dụng kde plot để so sánh xem khối nào thể hiện tốt hơn với môn học đó.
+
