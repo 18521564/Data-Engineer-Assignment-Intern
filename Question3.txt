@@ -9,6 +9,8 @@ departments. (20 points)
 
 
 Answer:
+select * from (
 select *,
        row_number() over (partition by departmentId Order by salary desc) AS highEarner
-from Employee
+from Employee) rank
+where highEarner <= 3;
