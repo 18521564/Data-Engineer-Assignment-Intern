@@ -4,6 +4,6 @@ Performance(AthleteId, Gender, Country, Score).
 Write an SQL to find the second highest score of athletes. (15 points)
 
 Answer:
-SELECT MAX(Score)
-FROM Performance
-WHERE Score < (SELECT MAX(Score) from Performance)
+select MAX(Score)
+from Performance
+where Score < (select MAX(Score) from Performance)
