@@ -5,4 +5,4 @@ Write an SQL query to report all customers who never order anything. (10 points)
 Answer:
 select name
 from Customers 
-where id not in (select customerId from Orders)
+where id not in (select customerId from Orders);
