@@ -1,0 +1,33 @@
+Question 7:
+We have a crawler that crawls websites in a list to find sensitive information
+(e.g., people talk or have opinions about our products.). Our list initially contains
+100 websites called seeds. When a crawler visits a website, it can find several links
+to other websites. Depending on the information of the linking websites, they can
+be added in the list to revisit later (e.g., if they are related to the seeds or contain
+valuable information about what we want to know, i.e., sensitive information). It
+means that with the initial of 100 seeds, our list can be updated to include more
+websites. However, since our resources are limited, we want to maintain only up to
+1000 websites. It means that in addition to 100 seeds, we can only maintain a
+maximum of 900 other websites. Design a solution to maintain this list of websites.
+Also justify your solution. (Max 10 points)
+
+Answer:
+Tóm tắt bài toán: cho list 100 trang web để cào dữ liệu, trong quá trình cào nếu phát hiện link trang web nào
+có khả năng chứa thông tin liên quan sẽ được đưa vào hàng đợi để cào tiếp. Tuy nhiên yêu cầu là chỉ giới hạn 1000 lần cào.
+
+Lời giải:
+100 trang web được yêu cầu sẽ cố định và bắt buộc phải cào lần lượt trước.
+Xây dựng một hàng đợi ưu tiên dành cho các website phát sinh trong quá trình cào. Độ ưu tiên sẽ được đánh giá bằng một hàm Heuristic đánh giá được thiết kế để ước tính 
+theo mức độ phần trăm rằng trang web có khả năng cung cấp thông tin quan trọng theo chủ đề ta cần thu thập. 
+Đặt bộ đếm cào là 1000. Mỗi lần thực hiện cho một trang web bộ đếm sẽ giảm xuống 1. Nếu hết lượt chương trình sẽ dừng cào.
+Tạo một list những trang web đã cào, mỗi lần thực hiện cào nếu link được set đã tồn tại trong list này ta sẽ bỏ qua, không thực hiện và bộ đếm giữ nguyên.
+Bắt đầu sẽ cào 100 trang web cố định trước các trang web phát sinh sẽ được thêm vào hàng đợi ưu tiên không giới hạn, hàm thêm vào hàng đợi ưu tiên
+sẽ bao gồm việc xét độ ưu tiên và lựa chọn vị trí chèn theo mức độ ưu tiên. Kết thúc 100 trang web cố định.
+Theo quy ước hàng đợi ưu tiên, trang web có độ ưu tiên cao sẽ được lấy ra trước. Cứ như vậy lấy trang web, cào dữ liệu, thêm vào link mới. Quá trình lặp cho đến khi bộ
+đếm trả về 0.
+Việc có thu được thông tin tốt, nhiều và hiệu quả hay không là nhờ vào việc thiết kế hàm Heuristic dự đoán mức độ tốt của một link trang web.
+Ý tưởng của hàm Heuristic chỉ dựa vào tên link:
++ Theo tên miền của website: những website có tên miền theo tập tên miền ta quy định sẽ được cộng 4 điểm Heuristic. (Nếu không có tên miền uy tín thì phải xuất hiện ít
+nhất 4 từ khóa liên quan đến nội dung để bù lại)
++ Theo số lượng từ khóa xuất hicậpện trong tập từ khóa ta quy định: Tăng một điểm với mỗi từ khóa xuất hiện.
+Việc lựa chọn tập tên miền và từ khóa sẽ dựa vào yêu cầu của việc cào dữ liệu.
